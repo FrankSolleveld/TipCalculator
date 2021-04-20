@@ -9,8 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
+        VStack {
+            Text("Tip Calculator")
+                .font(.title)
+            
+            HStack {
+                Text("€")
+                Text("TextField")
+            }
             .padding()
+            
+            HStack {
+                Text("Slider")
+                Text("%")
+            }
+            
+            Text("Total Tip: ")
+        }
     }
 }
 
