@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    // MARK: Binding Variables
+    @State var total = "20"
+    @State var tipPercent: Double = 15.0
+    
+    // MARK: Views
     var body: some View {
         VStack {
             Text("Tip Calculator")
@@ -15,17 +21,22 @@ struct ContentView: View {
             
             HStack {
                 Text("€")
-                Text("TextField")
+                TextField("Total", text: $total)
+                    .border(Color.black, width: 0.25)
             }
             .padding()
             
             HStack {
-                Text("Slider")
-                Text("%")
+                Slider(value: $tipPercent, in: 0...30, step: 1.0)
+                Text("\(Int(tipPercent))%")
             }
             .padding()
             
-            Text("Total Tip: ")
+            if let totalNum = Double(total) {
+                Text("Tip Amount: €\(totalNum * tipPercent / 100, specifier: "%0.2f")")
+            } else {
+                Text("Please enter numerical values only.")
+            }
         }
     }
 }
