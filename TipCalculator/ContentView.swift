@@ -23,6 +23,7 @@ struct ContentView: View {
                 Text("Slider")
                 Text("%")
             }
+            .padding()
             
             Text("Total Tip: ")
         }
